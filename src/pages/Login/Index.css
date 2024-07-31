@@ -1,0 +1,73 @@
+body {
+  background-color: #f0f2f5;
+}
+
+.login-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+}
+
+.login-container {
+  width: 100%;
+  max-width: 400px;
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.login-item {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.error-message {
+  color: red;
+  margin-bottom: 1rem;
+}
+
+.remember-me-item {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  margin-bottom: 1rem;
+}
+
+.forgot-password {
+  margin-top: 1rem;
+}
+
+.forgot-password a {
+  color: #2575fc;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.forgot-password a:hover {
+  text-decoration: underline;
+}
+
+ion-input {
+  --background: #f9f9f9;
+  --padding-start: 10px;
+  --padding-end: 10px;
+  --padding-top: 10px;
+  --padding-bottom: 10px;
+  border-radius: 5px;
+}
+
+ion-item {
+  --inner-padding-start: 0;
+  --inner-padding-end: 0;
+  --padding-start: 0;
+  --padding-end: 0;
+}
+
+ion-label {
+  color: #6a11cb;
+  font-weight: bold;
+}
