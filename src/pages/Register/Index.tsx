@@ -50,8 +50,7 @@ const Register: React.FC = () => {
       <IonLoading message="Please Wait.." duration={0} isOpen={busy}/>
 
       <IonContent className="ion-padding">
-            <IonInput placeholder='UserName' value={username} onIonChange={(e: any) => setUsername(e.target.value)} clearInput></IonInput>
-          
+            <IonInput placeholder='Enter a username or email address' inputMode='email' label-placement="stacked" value={username} onIonChange={(e: any) => setUsername(e.target.value)} clearInput></IonInput>
             <IonInput placeholder='Password' type='password' value={password} onIonChange={(e: any) => setPassword(e.target.value)} clearInput></IonInput>
             <IonInput placeholder='Confirm Password' type= 'password' value={cPassword} onIonChange={(e: any) => setCPassword(e.target.value)} clearInput></IonInput>          
        

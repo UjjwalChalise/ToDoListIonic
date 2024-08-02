@@ -1,5 +1,10 @@
 import { Redirect, Route } from 'react-router-dom';
-import { IonApp, IonRouterOutlet, IonSpinner, setupIonicReact } from '@ionic/react';
+import {
+  IonApp,
+  IonRouterOutlet,
+  IonSpinner,
+  setupIonicReact,
+} from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 
 /* Core CSS required for Ionic components to work properly */
@@ -18,91 +23,103 @@ import '@ionic/react/css/text-transformation.css';
 import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/display.css';
 
-/**
- * Ionic Dark Mode
- * -----------------------------------------------------
- * For more info, please see:
- * https://ionicframework.com/docs/theming/dark-mode
- */
-
-/* import '@ionic/react/css/palettes/dark.always.css'; */
-/* import '@ionic/react/css/palettes/dark.class.css'; */
-import '@ionic/react/css/palettes/dark.system.css';
-
 /* Theme variables */
 import './theme/variables.css';
-import Home from './pages/Home/Index';
-import Index from './pages/Dashboard/Dashboard';
+
+import Dashboard from './pages/Dashboard/Dashboard';
+import Home from './pages/Home/Home';
 import Login from './pages/Login/Index';
 import Register from './pages/Register/Index';
 import { useEffect, useState } from 'react';
-import {getCurrentUser} from './Firebase/firebaseConfigs'
+import { getCurrentUser } from './Firebase/firebaseConfigs';
 import { useDispatch } from 'react-redux';
 import { setUserState } from './redux/action';
+import { Storage } from '@ionic/storage';
+import './CustomMenu.css';
+import UpdateTask from './pages/Task/UpdateTask';
+import CreateTask from './pages/Task/CreateTask';
+import Intro from './pages/Intro/Intro';
+import TopTabs from './pages/Layout/TopTabs';
+import BottomTabs from './pages/Layout/ButtomTabs';
+import Mine from './pages/Mine/Mine';
 
 setupIonicReact();
 
-const RoutingSystem : React.FC =() =>{
+const RoutingSystem: React.FC = () => {
   return (
     <IonReactRouter>
       <IonRouterOutlet>
+      <Route exact path="/intro">
+            <Intro onContinue={() => { /* Handle continuation, e.g., navigate to home */ }} />
+          </Route>
         <Route exact path="/login">
-        
           <Login />
         </Route>
         <Route exact path="/register">
-        
           <Register />
         </Route>
-        <Route exact path="/home">
-        
-          <Home />
-        </Route>
-
-
-        <Route exact path="/home">
-        
-          <Home />
-        </Route>
-
         <Route exact path="/dashboard">
-        
-          <Index />
+          <Dashboard />
+        </Route>
+        <Route exact path="/home">
+          <Home />
+        </Route>
+        <Route exact path="/task/create">
+          <CreateTask />
+        </Route>
+        <Route exact path="/task/edit/:id">
+          <UpdateTask />
+        </Route>
+        <Route exact path="/mine">
+          <Mine />
         </Route>
         <Route exact path="/">
-          <Redirect to="/home" />
+          <Redirect to="/login" />
         </Route>
+        <Route path="/home" component={Home} exact={true} />
+
       </IonRouterOutlet>
     </IonReactRouter>
-  )
-}
+  );
+};
 
-const App: React.FC = () =>{
-  const[busy,setBusy]= useState(true)
-const dispatch = useDispatch();
+const App: React.FC = () => {
+  const [storage, setStorage] = useState<Storage | null>(null);
+  const [busy, setBusy] = useState(true);
+  const dispatch = useDispatch();
 
+  useEffect(() => {
+    const initStorage = async () => {
+      const store = new Storage();
+      const createdStore = await store.create();
+      setStorage(createdStore);
+    };
 
-  useEffect(()=>{
-      getCurrentUser().then((user:any)=>{
-        console.log("user",user)
-        if(user){
-          dispatch(setUserState(user.email))
+    initStorage();
 
-          window.history.replaceState({},'','/dashboard')
-        }
-        else{
-          window.history.replaceState({},'','/login')
-        }
-        setBusy(false)
-      })
-  },[])
-  
-  return(
-  <IonApp>
-    {busy ? <IonSpinner/> :
-    <RoutingSystem />}
+    setBusy(true);
+    getCurrentUser().then((user: any) => {
+      if (user) {
+        dispatch(setUserState(user.email));
+        window.history.replaceState({}, '', '/mine');
+      } else {
+        window.history.replaceState({}, '', '/mine');
+      }
+      setBusy(false);
+    });
+  }, [dispatch]);
+
+  return (
+    <IonApp>
+    <IonReactRouter>
+      <TopTabs />
+    
+      {busy ? <IonSpinner /> : <RoutingSystem />}
+      <BottomTabs />
+    </IonReactRouter>
   </IonApp>
-)
-}
+
+  );
+};
 
 export default App;

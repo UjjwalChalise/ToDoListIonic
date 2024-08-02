@@ -1,0 +1,151 @@
+/* Calendar.css */
+
+/* Container for the calendar */
+.calendar-container {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh; /* Ensure the container takes full viewport height */
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  color: #fff;
+  padding: 10px;
+}
+
+/* Calendar styling */
+.calendar {
+  width: 100%;
+
+  max-width: 400px;
+  border-radius: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  color: #000;
+}
+
+/* Text styling for calendar */
+.calendar-text {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Styling for ion-text within calendar-text */
+.calendar-text ion-text {
+  display: block;
+  margin-top: 10px;
+  font-size: 16px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Calendar heading styling */
+.calendar-heading {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* FAB button styling */
+ion-fab-button {
+  --background: #1e88e5;
+  --color: #fff;
+  transition: transform 0.3s;
+}
+
+/* FAB button hover effect */
+ion-fab-button:hover {
+  transform: scale(1.1);
+}
+
+/* Keyframes for fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.calendar-toDoList {
+    width: 100%;
+    text-align: start;
+    margin-top: 10px;
+    font-size: 24px;
+      font-weight: bold;
+         animation: fadeIn 1s ease-in-out;
+     justify-content: flex-start;
+      display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .calendar-toDoList ul {
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+    margin: 0;
+  }
+  
+  .calendar-toDoList ul li {
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  .calendar-toDoList ul li.completed {
+    filter: blur(2px);
+    background: #e0e0e0;
+    margin-bottom: 4px;
+    opacity: 0.6;
+  }
+  
+  .calendar-toDoList ul li .ion-item {
+    margin-bottom: 4px;
+    padding: 10px;
+    width: 100%;
+    flex: 1;
+  }
+  
+  .calendar-toDoList ul li h2 {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .calendar-toDoList ul li h3 {
+    margin: 0;
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .calendar-toDoList ul li .ion-button {
+    margin-left: auto;
+  }
+  
+  .calendar-toDoList ul li .ion-button ion-icon {
+    font-size: 20px;
+  }
+  
+  .calendar-toDoList ul li .ion-item-options {
+    display: none;
+  }
+  
+  .calendar-toDoList ul li:hover .ion-item-options {
+    display: block;
+  }
+  
+  .calendar-toDoList ul li .ion-item-options .ion-item-option {
+    padding: 10px;
+  }
+  
+  .calendar-toDoList ul li .ion-item-options .ion-item-option ion-icon {
+    font-size: 20px;
+  }
+

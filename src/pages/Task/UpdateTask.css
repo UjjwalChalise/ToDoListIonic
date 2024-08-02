@@ -1,0 +1,42 @@
+/* UpdateTask.css */
+
+/* Basic styling for input fields */
+.input-field {
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 8px;
+  }
+  
+  /* Styling for the datetime picker */
+  .datetime-field {
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 8px;
+  }
+  
+  /* Button styling for OK */
+  .ok-button {
+    margin-top: 16px;
+    background-color: #3880ff;
+    color: #fff;
+  }
+  
+  /* Button styling for delete */
+  .delete-button {
+    margin-top: 16px;
+    background-color: #ff3c3c;
+    color: #fff;
+  }
+  
+  /* Add a clear button for better UX */
+  .ion-input-clear {
+    --color: #3880ff;
+  }
+  
+  /* Optional: Add some spacing to the page */
+  .ion-padding {
+    padding: 16px;
+  }
+  

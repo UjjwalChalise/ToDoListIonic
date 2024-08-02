@@ -1,0 +1,34 @@
+.intro-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    position: relative;
+  }
+  
+  .intro-container {
+    text-align: center;
+    position: relative;
+  }
+  
+  .background-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+  
+  .gif-container {
+    margin-top: 20px;
+  }
+  
+  .gif-player {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .continue-button {
+    margin-top: 20px;
+  }
+  

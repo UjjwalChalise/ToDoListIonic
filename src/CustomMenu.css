@@ -1,0 +1,36 @@
+/* CustomMenu.css */
+
+/* Style the menu */
+.menu-content {
+    background: #f8f9fa; /* Light background for better contrast */
+    padding: 10px;
+  }
+  
+  /* Style the menu items */
+  .menu-content .ion-item {
+    --background: #ffffff; /* White background for items */
+    --color: #333; /* Dark text color */
+    border-radius: 8px; /* Rounded corners for items */
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  }
+  
+  /* Style icons */
+  .menu-content .ion-icon {
+    color: #007bff; /* Primary color for icons */
+  }
+  
+  /* Style the header */
+  .ion-header {
+    background: #007bff; /* Primary color for header background */
+    color: #fff; /* White text color for header */
+  }
+  
+  .ion-toolbar {
+    padding: 0 10px; /* Adjust padding for the toolbar */
+  }
+  
+  .ion-title {
+    font-size: 1.2rem; /* Increase font size for better readability */
+  }
+  

@@ -1,0 +1,20 @@
+.input-field, .datetime-field {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+  
+  .ok-button {
+    margin-top: 16px;
+    width: 100%;
+  }
+  
+  @media (max-width: 600px) {
+    .input-field, .datetime-field {
+      font-size: 14px;
+    }
+  
+    .ok-button {
+      font-size: 16px;
+    }
+  }
+  
