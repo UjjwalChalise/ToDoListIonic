@@ -23,7 +23,7 @@ const CustomDateTime = forwardRef<HTMLIonDatetimeElement, CustomDateTimeProps>(
       
       <div className="datetime-button-container">
         <IonButton disabled={new Date().toISOString().split('T')[0] == value
-} expand="block" onClick={onTodayButtonClick}>
+          } expand="block" onClick={onTodayButtonClick}>
           Today
         </IonButton>
       </div>

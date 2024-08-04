@@ -76,3 +76,17 @@ export const loadDataFromFirestore = async (): Promise<void> => {
   await saveData('tasks', tasksFromFirestore);
   await saveData('categories', categoriesFromFirestore);
 };
+// Save image to local storage
+export const saveImageToLocalStorage = async (key: string, imageData: string): Promise<void> => {
+  localStorage.setItem(key, imageData);
+};
+
+// Get image from local storage
+export const getImageFromLocalStorage = async (key: string): Promise<string | null> => {
+  return localStorage.getItem(key);
+};
+
+// You can also clear the image if needed
+export const clearImageFromLocalStorage = async (key: string): Promise<void> => {
+  localStorage.removeItem(key);
+};

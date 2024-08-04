@@ -4,29 +4,30 @@ import { useIonRouter } from '@ionic/react';
 import { checkmarkCircleOutline } from 'ionicons/icons';
 import './CreateTask.css';
 import { getData, saveData } from '../../components/storage';
+import { TaskModel } from '../../Model/TaskModel';
+import CustomInput from '../../components/CustomInput';
+import CustomDateTime from '../../components/CustomDateTime';
 
-export interface Task {
-  id: string;  // ID is required
-  name: string;
-  desc: string;
-  date: string;
-}
 
 const CreateTask: React.FC = () => {
   const [name, setName] = useState('');
   const [desc, setDesc] = useState('');
   const [date, setDate] = useState<string | undefined>(undefined);
   const router = useIonRouter();
+  const [selectedDate, setSelectedDate] = useState<string>(new Date().toISOString().split('T')[0]);
+ 
 
   const handleAddTask = async () => {
     if (name.trim() === '' || desc.trim() === '' || !date) {
       return;
     }
-    const newTask: Task = { name, desc, date, id: new Date().toISOString() };
+ 
+
+    const newTask: TaskModel = { name, desc, date, id: new Date().toISOString(),categoryId:"",completed:true,incrementId:1 };
     const localTasks = await getData('tasks') || [];
     localTasks.push(newTask);
     await saveData('tasks', localTasks);
-    router.push('/home');
+    router.goBack()
   };
 
   return (
@@ -36,18 +37,28 @@ const CreateTask: React.FC = () => {
           <IonTitle>Create Task</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent className="ion-padding">
-        <IonInput placeholder="Task Name" value={name} onIonChange={(e) => setName(e.detail.value!)} clearInput className="input-field" />
-        <IonInput placeholder="Description" value={desc} onIonChange={(e) => setDesc(e.detail.value!)} clearInput className="input-field" />
-        <IonDatetime 
-          aria-placeholder="Select Due Date" 
-          value={date} 
-          onIonChange={(e) => setDate(e.detail.value!.toString())} 
-          className="datetime-field" 
+      <IonContent fullscreen>
+      <CustomInput
+            label="Task Name"
+            value={name}
+            onChange={setName}
+            type="text"
+          />
+           <CustomInput
+            label="Description"
+            value={desc}
+            onChange={setDesc}
+            type="text"
+          />
+       
+         <IonDatetime
+          presentation='date'
+          value={selectedDate}
+          onClick={()=>setSelectedDate }
         />
-        <IonButton onClick={handleAddTask} className="ok-button">
-          <IonIcon icon={checkmarkCircleOutline} slot="icon-only" />
-        </IonButton>
+        <IonInput type='date'></IonInput>
+       
+
       </IonContent>
     </IonPage>
   );

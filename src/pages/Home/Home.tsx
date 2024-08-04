@@ -3,7 +3,6 @@ import {
   IonAvatar,
   IonButton,
   IonContent,
-  IonHeader,
   IonIcon,
   IonItem,
   IonItemOption,
@@ -12,8 +11,6 @@ import {
   IonLabel,
   IonList,
   IonPage,
-  IonTitle,
-  IonToolbar,
   useIonRouter,
 } from '@ionic/react';
 import { add, pencilOutline, trashOutline } from 'ionicons/icons';
@@ -21,6 +18,7 @@ import './Home.css';
 import { TaskModel } from '../../Model/TaskModel';
 import { getData, loadDataFromFirestore, saveData } from '../../components/storage';
 import { logOutUser, syncLocalDataWithFirestore } from '../../Firebase/firebaseConfigs';
+import CustomHeader from '../../components/CustomHeader';
 
 const Home: React.FC = () => {
   const [tasks, setTasks] = useState<TaskModel[]>([]);
@@ -28,25 +26,24 @@ const Home: React.FC = () => {
 
   useEffect(() => {
     const loadData = async () => {
-      await loadDataFromFirestore(); // Load from Firestore
       const localTasks = await getData('tasks') || [];
       setTasks(localTasks);
     };
     loadData();
   }, []);
 
-  const handleUploadData = async () => {
-    await syncLocalDataWithFirestore(); // Sync local data with Firestore
-    const localTasks = await getData('tasks') || [];
-    setTasks(localTasks);
-  };
+  // const handleUploadData = async () => {
+  //   await syncLocalDataWithFirestore(); // Sync local data with Firestore
+  //   const localTasks = await getData('tasks') || [];
+  //   setTasks(localTasks);
+  // };
 
-  const handleDelete = async (id: string) => {
-    const localTasks: TaskModel[] = await getData('tasks') || [];
-    const updatedTasks = localTasks.filter(task => task.id !== id);
-    await saveData('tasks', updatedTasks);
-    setTasks(updatedTasks);
-  };
+  // const handleDelete = async (id: string) => {
+  //   const localTasks: TaskModel[] = await getData('tasks') || [];
+  //   const updatedTasks = localTasks.filter(task => task.id !== id);
+  //   await saveData('tasks', updatedTasks);
+  //   setTasks(updatedTasks);
+  // };
 
   const handleCreateTask = () => {
     router.push('/task/create');
@@ -64,25 +61,21 @@ const Home: React.FC = () => {
 
   return (
     <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>Home</IonTitle>
-        </IonToolbar>
-      </IonHeader>
-      <IonContent className="ion-padding" fullscreen>
+      <CustomHeader />
+      <IonContent fullscreen>
         <div className="button-group">
           <IonButton expand="block" onClick={handleCreateTask} className="action-button">
             <IonIcon icon={add} slot="start" />
             Add Task
           </IonButton>
-          <IonButton expand="block" onClick={handleUploadData} className="action-button">
+          {/* <IonButton expand="block" onClick={handleUploadData} className="action-button">
             Upload All Tasks
-          </IonButton>
+          </IonButton> */}
           <IonButton expand="block" onClick={handleLogout} className="action-button">
             Log Out
           </IonButton>
         </div>
-        <IonList>
+        {/* <IonList>
           {tasks.length > 0 ? (
             tasks.map((task) => (
               <IonItemSliding key={task.id}>
@@ -120,7 +113,7 @@ const Home: React.FC = () => {
               </IonButton>
             </div>
           )}
-        </IonList>
+        </IonList> */}
       </IonContent>
     </IonPage>
   );

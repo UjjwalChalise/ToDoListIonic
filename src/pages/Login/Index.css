@@ -1,6 +1,10 @@
 body {
   background-color: #f0f2f5;
 }
+.custom-toolbar {
+  --background: #3880ff;
+  --color: #ffffff;
+}
 
 .login-content {
   display: flex;

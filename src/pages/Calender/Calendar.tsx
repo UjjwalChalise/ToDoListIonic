@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { IonContent, IonPage, IonFab, IonFabButton, IonIcon, IonText, IonDatetime, useIonRouter, IonItemSliding, IonItem, IonAvatar, IonLabel, IonButton, IonItemOptions, IonItemOption } from '@ionic/react';
-import { add, pencilOutline, trashOutline } from 'ionicons/icons';
+import { IonContent, IonPage, IonFab, IonFabButton, IonIcon, IonText, useIonRouter, IonItemSliding, IonItem, IonAvatar, IonLabel, IonButton, IonItemOptions, IonItemOption } from '@ionic/react';
+import { add, pencilOutline} from 'ionicons/icons';
 import './Calender.css';
 import { TaskModel } from '../../Model/TaskModel';
 import { getData, saveData } from '../../components/storage';
@@ -52,7 +52,7 @@ const Calendar: React.FC = () => {
 
  
   const handleAddTask = () => {
-    router.push('/create-task');
+    router.push('/task/create');
   };
 
   return (

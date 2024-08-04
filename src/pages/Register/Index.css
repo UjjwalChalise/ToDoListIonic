@@ -1,0 +1,21 @@
+.register-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+  }
+  
+  .register-container {
+    width: 100%;
+    max-width: 400px;
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  .custom-toolbar {
+    --background: #3880ff;
+    --color: #ffffff;
+  }

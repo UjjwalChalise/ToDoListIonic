@@ -1,0 +1,108 @@
+/* MinePage.css */
+
+/* Style for the custom toolbar */
+.custom-toolbar {
+    --background: #3880ff;
+    --color: #ffffff;
+}
+
+/* Style for the avatar image */
+ion-avatar img {
+    margin-left: 15%;
+    margin-top: 15%;
+    width: 45px;
+    height: 45px;
+    cursor: pointer; /* Add cursor pointer to indicate clickability */
+}
+ion-card-card {
+    font-size: 1rem;
+}
+/* Custom font for additional user info */
+.custom-font {
+    font-family: 'Arial', sans-serif;
+    font-size: 0.8rem;
+    color:white;
+}
+
+ion-title {
+    font-family: 'Arial', sans-serif;
+    font-size: 2rem;
+}
+
+/* Style for the card content */
+ion-card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Style for the block button */
+.pro-button {
+    width: 100%;
+    background-color: #10dc60;
+    color: white;
+    font-size: 1.2rem;
+    padding: 12px;
+}
+
+/* Increase icon size */
+ion-icon {
+    font-size: 2rem;
+}
+
+/* General container padding */
+.content-container {
+    padding: 16px;
+}
+
+/* Style for the task overview header */
+.content-container h3 {
+    font-size: 1.2rem;
+    color: #222428;
+}
+
+/* Style for the task overview section */
+.task-overview {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 16px;
+}
+
+/* Style for individual task overview items */
+.task-overview div {
+    text-align: center;
+}
+
+.task-overview h4 {
+    font-size: 1.8rem;
+    color: #3880ff;
+}
+
+.task-overview p {
+    font-size: 1rem;
+    color: #222428;
+}
+
+/* Style for the completion and pending tasks sections */
+.section {
+    margin-bottom: 16px;
+}
+
+.section h3 {
+    font-size: 1.2rem;
+    color: #222428;
+}
+
+.section p {
+    font-size: 1rem;
+    color: #8c8c8c;
+}
+
+/* Style for the action button */
+.action-button {
+    width: 50%;
+
+    color: white;
+    font-size: 1.2rem;
+    padding: 12px;
+}
